@@ -61,8 +61,10 @@ def transcribe_with_groq(stt_model, audio_filepath, GROQ_API_KEY):
                 language="en"
             )
         print("\n🎧 Transcription:\n", transcription.text)
+        return transcription.text  # <-- return transcription text here
     except Exception as e:
         logging.error(f"An error occurred during transcription: {e}")
+        return None
 
 # ✅ Run Everything
 record_audio(file_path=audio_filepath)
